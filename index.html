@@ -1,77 +1,116 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bella Method</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-</head>
-<body>
-  <div id="particles-js"></div>
-  
-  <header>
-    <nav>
-      <div class="logo-container">
-        <div class="logo">Bella Method</div>
-        <img src="https://media.discordapp.net/attachments/1272524456023031838/1272595165139435642/logo2.gif?ex=678dd35b&is=678c81db&hm=0c49199982a4216106037ee05069d788611aaed13a00d31f649e50f568efd199&=&width=490&height=503" alt="Bella Method Logo" class="logo-gif">
-      </div>
-      <div class="nav-links">
-        <a href="#faq">FAQ</a>
-        <a href="https://discord.gg/3zXEuXh2J2" target="_blank">Discord</a>
-        <button class="login-btn">Login</button>
-      </div>
-    </nav>
-  </header>
+document.addEventListener('DOMContentLoaded', () => {
+  // Split the hero text into individual letters with spans
+  const heroTitle = document.querySelector('.hero h1');
+  heroTitle.innerHTML = heroTitle.textContent
+    .split('')
+    .map((letter, index) => letter === ' ' 
+      ? ' ' 
+      : `<span style="animation-delay: ${index * 0.1}s; animation-play-state: running;">${letter}</span>`
+    )
+    .join('');
 
-  <main>
-    <section class="announcement">
-      <p>Announcement:</p>
-      <p>Need help or have questions? Join our Discord server <a href="https://discord.gg/cheetaa" target="_blank">here</a>.</p>
-    </section>
+  // Remove the letter-by-letter animation for emphasis text
+  const emphasisText = document.querySelector('.emphasis-text');
+  emphasisText.innerHTML = emphasisText.textContent;
 
-    <section class="hero">
-      <h1>Welcome to Bella Method</h1>
-      <p>Best <span class="emphasis-text">cheats</span> on the market.</p>
-      <div class="cta-buttons">
-        <button class="purchase-btn">Purchase Now</button>
-      </div>
-    </section>
+  // Initialize particles.js with mixed colors
+  particlesJS('particles-js', {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800
+        }
+      },
+      color: {
+        value: ['#ffd700', '#87CEEB']  // Yellow and Light Blue particles
+      },
+      shape: {
+        type: 'circle'
+      },
+      opacity: {
+        value: 0.5,
+        random: false
+      },
+      size: {
+        value: 3,
+        random: true
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: '#c0c0c0',  // Silver connections
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: 'none',
+        random: false,
+        straight: false,
+        out_mode: 'out',
+        bounce: false
+      }
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: {
+          enable: true,
+          mode: 'grab'
+        },
+        onclick: {
+          enable: true,
+          mode: 'push'
+        },
+        resize: true
+      },
+      modes: {
+        grab: {
+          distance: 140,
+          line_linked: {
+            opacity: 1
+          }
+        },
+        push: {
+          particles_nb: 4
+        }
+      }
+    },
+    retina_detect: true
+  });
 
-    <section id="faq" class="faq">
-      <h2>FAQ</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3>How do I get started?</h3>
-          <p>Simply choose your preferred package and make your purchase and you will receive your order instantly.</p>
-        </div>
+  // Add hover effects to buttons
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach(button => {
+    button.addEventListener('mouseover', () => {
+      button.style.transform = 'translateY(-2px)';
+    });
+    
+    button.addEventListener('mouseout', () => {
+      button.style.transform = 'translateY(0)';
+    });
+  });
 
-        <div class="faq-item">
-          <h3>What payment methods do you accept?</h3>
-          <p>Yes, we support a wide range of payment methods, including popular fiat options like Credit Cards (in discord server only) as well as various cryptocurrencies. This enables you to make payments using the method that is most convenient for you.</p>
-        </div>
+  // Add smooth scroll behavior for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        const headerOffset = 100;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        <div class="faq-item">
-          <h3>Is my purchase secure?</h3>
-          <p>Yes, all transactions are processed through secure payment gateways with industry-standard encryption.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>How can I get support?</h3>
-          <p>Our support team is available 24/7 through our Discord server and ticket system.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>How often do you update?</h3>
-          <p>We provide regular updates to ensure optimal performance and compatibility.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2024 Bella Method. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
