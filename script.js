@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const emphasisText = document.querySelector('.emphasis-text');
   emphasisText.innerHTML = emphasisText.textContent;
 
-  // Initialize particles.js with new colors
+  // Initialize particles.js with mixed colors
   particlesJS('particles-js', {
     particles: {
       number: {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       },
       color: {
-        value: '#ffd700'  // Yellow particles
+        value: ['#ffd700', '#87CEEB']  // Yellow and Light Blue particles
       },
       shape: {
         type: 'circle'
