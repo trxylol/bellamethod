@@ -1,110 +1,33 @@
-:root {
-  --primary-color: #ffd700;  /* Yellow */
-  --secondary-color: #c0c0c0; /* Silver */
-  --background-color: #000000; /* Black */
-  --text-color: #ffffff;
-  --card-bg: #1a1a1a;
-  --hover-color: #fff700;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: var(--background-color);
-}
-
-header, main, footer {
-  position: relative;
-  z-index: 2;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 4rem;
-  background-color: rgba(0, 0, 0, 0.9);
-  border-bottom: 1px solid var(--secondary-color);
-  backdrop-filter: blur(10px);
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-}
-
-.logo-gif {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--primary-color);
-}
-
-button {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-}
-
-.login-btn {
-  background-color: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
 .purchase-btn {
   background-color: var(--primary-color);
   color: black;
   font-weight: bold;
+}
+
+.announcement {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);  
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  margin: 1rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+.announcement p {
+  margin: 0.5rem 0;
+}
+
+.announcement a {
+  color: #87CEEB;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.announcement a:hover {
+  color: #6495ED;
 }
 
 .hero {
