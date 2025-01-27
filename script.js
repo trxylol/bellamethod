@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? ' ' 
       : `<span style="animation-delay: ${index * 0.1}s; animation-play-state: running;">${letter}</span>`
     )
-    .join('');
+    .join(''); 
 
   // Remove the letter-by-letter animation for emphasis text
   const emphasisText = document.querySelector('.emphasis-text');
